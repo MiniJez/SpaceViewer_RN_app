@@ -1,17 +1,12 @@
 import React from 'react'
 import { View, Text } from 'react-native'
-import { Icon } from 'react-native-elements'
+import Header from '../../components/header'
+import HeaderComponent from '../../components/header'
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
     return (
-        <View>
-            <Text>Hello !</Text>
-            <Icon
-                reverse
-                name='ios-american-football'
-                type='ionicon'
-                color='#517fa4'
-            />
+        <View style={{ flex: 1 }}>
+            <HeaderComponent navigation={navigation}/>
         </View>
     )
 }
