@@ -9,7 +9,7 @@ const menuList = [
         name: "Mars weather",
         iconName: "partly-sunny",
         iconType: "ionicon",
-        screenName: "MarsWeatherScreen",
+        screenName: "MarsWeather",
         section: 0
     },
     {
@@ -21,15 +21,15 @@ const menuList = [
         child: [
             {
                 name: "Curiosity",
-                screenName: "CuriosityScreen"
+                screenName: "Curiosity"
             },
             {
                 name: "Opportunity",
-                screenName: "OpportunityScreen"
+                screenName: "Opportunity"
             },
             {
                 name: "Spirit",
-                screenName: "SpiritScreen"
+                screenName: "Spirit"
             }
         ],
         section: 1
@@ -40,6 +40,11 @@ const CustomDrawerComponent = ({ navigation }) => {
 
     const [activeSection, setActiveSection] = useState([])
 
+    const _onPressNavigation = (section) => {
+        setActiveSection([])
+        navigation.navigate(section.screenName)
+    }
+
     const _renderHeader = (section) => {
         return (
             <ListItem
@@ -47,7 +52,7 @@ const CustomDrawerComponent = ({ navigation }) => {
                 leftIcon={{ name: section.iconName, type: section.iconType }}
                 bottomDivider
                 chevron={section.chevronIconName ? { name: section.section === activeSection[0] ? section.chevronIconName[1] : section.chevronIconName[0] , type: section.chevronIconType, size: 20 } : null}
-                onPress={ section.screenName ? () => navigation.navigate(section.screenName) : null }
+                onPress={ section.screenName ? () => _onPressNavigation(section) : null }
             />
         )
     }
@@ -62,7 +67,7 @@ const CustomDrawerComponent = ({ navigation }) => {
                         bottomDivider
                         titleStyle={{ marginLeft: "16%" }}
                         containerStyle={{backgroundColor: '#eaf2fa'}}
-                        onPress={ () => navigation.navigate(value.screenName) }
+                        onPress={ () => _onPressNavigation(value) }
                     />
                 )
             })
