@@ -1,10 +1,12 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { createEpicMiddleware, combineEpics } from 'redux-observable';
+import { getRoverImageEpic } from './epics/roverEpic'
+import roverReducer from './reducers/roverReducer'
 
-const rootEpic = combineEpics(/*Epics here*/);
+const rootEpic = combineEpics(getRoverImageEpic);
 
 const rootReducer = combineReducers({
-    /*Reducers here*/
+    rover: roverReducer
 })
 
 const epicMiddleware = createEpicMiddleware();
