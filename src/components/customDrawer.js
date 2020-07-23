@@ -83,7 +83,7 @@ const CustomDrawerComponent = ({ navigation }) => {
         <View>
             <Header
                 centerComponent={{ text: "MENU", style: { color: "white", fontSize: 20 } }}
-                containerStyle={{ backgroundColor: colors.menu }}
+                containerStyle={{ backgroundColor: colors.menuOrange }}
             />
             <Accordion
                 sections={menuList}

@@ -9,9 +9,9 @@ import { NASA_API_KEY } from '../../env'
 
 export const getRoverImageEpic = (action$, state$) => action$.pipe(
     ofType(GET_ROVER_IMAGE_REQUEST),
-    switchMap(({rover, date, camera, page}) => {
-        console.log(rover, date, camera, page)
-        const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?earth_date=${date}&camera=${camera}&page=${page}&api_key=${NASA_API_KEY}`
+    switchMap(action => {
+        const { rover, sol, page } = action.payload
+        const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&page=${page}&api_key=${NASA_API_KEY}`
         return from(axios.get(url)).pipe(
             // tap(res => {
             //     AsyncStorage.getItem('schedule').then(
@@ -24,7 +24,7 @@ export const getRoverImageEpic = (action$, state$) => action$.pipe(
             //         }
             //     )
             // }),
-            map(res => getRoverImageSuccess(res.data)),
+            map(res => getRoverImageSuccess(res.data.photos)),
             catchError(error => of(getRoverImageFailure(error)))
         )
     })

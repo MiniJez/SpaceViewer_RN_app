@@ -1,7 +1,7 @@
-import { GET_ROVER_IMAGE_FAILURE, GET_ROVER_IMAGE_SUCCESS } from '../actionType'
+import { GET_ROVER_IMAGE_FAILURE, GET_ROVER_IMAGE_SUCCESS, GET_ROVER_IMAGE_REQUEST } from '../actionType'
 
 const initialState = {
-    image: null,
+    photos: [],
     error: null
 }
 
@@ -12,7 +12,7 @@ const roverReducer = (state = initialState, action) => {
         case GET_ROVER_IMAGE_SUCCESS:
             nextState = {
                 ...state,
-                image: action.payload.image
+                photos: action.payload.photos
             }
 
             return nextState

@@ -3,7 +3,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import HomeScreen from '../screens/home'
 import CustomDrawerComponent from '../components/customDrawer'
 import CuriosityScreen from '../screens/curiosity'
 import OpportunityScreen from '../screens/opportunity'
@@ -17,18 +16,13 @@ const HomeStack = () => {
     return (
         <Stack.Navigator>
             <Stack.Screen
-                name="Home"
-                component={HomeScreen}
+                name="Curiosity"
+                component={CuriosityScreen}
                 options={{ headerShown: false }}
             />
             <Stack.Screen
                 name="Opportunity"
                 component={OpportunityScreen}
-                options={{ headerShown: false }}
-            />
-            <Stack.Screen
-                name="Curiosity"
-                component={CuriosityScreen}
                 options={{ headerShown: false }}
             />
             <Stack.Screen

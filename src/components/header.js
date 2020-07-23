@@ -13,8 +13,8 @@ const HeaderComponent = ({navigation}) => {
         return (
             <Image 
                 source={images.logo}
-                resizeMode='center'
-                style={{ width: 200, marginBottom: 5 }}
+                resizeMode='contain'
+                style={{ width: 150, marginBottom: 5 }}
             />
         )
     }

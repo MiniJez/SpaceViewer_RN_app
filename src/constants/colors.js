@@ -1,5 +1,6 @@
 const colors = {
-    menu: "#faa307"
+    menuOrange: "#faa307",
+    headerBlue: "#4489D6"
 }
 
 export default colors
